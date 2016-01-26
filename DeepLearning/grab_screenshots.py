@@ -32,4 +32,7 @@ for s in screenshots:
     shutil.move(s, re.sub(r'\ ', r'_', s))
 screenshots = [re.sub(r'\ ', r'_', s) for s in screenshots]
 for s in screenshots:
+    print("<img src='" + s.split('/')[-1] + "'>")
     shutil.move(s, destdir + '/' + s.split('/')[-1])
+
+
