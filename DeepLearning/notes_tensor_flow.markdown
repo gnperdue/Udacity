@@ -32,6 +32,27 @@ IPython Notebook (or `tensorboard`, below). Then, go to the `/notmnist` director
 on the docker host. Next, run `ipython notebook` at the docker host prompt, then
 go to, e.g. `192.168.99.100:5000` if we chose port 5000 above, etc.
 
+Or, even better here (default TensorFlow image does not include `scipy`,):
+
+    docker run -it -v "$PWD":/notmnist -p 8888:8888 -it --rm b.gcr.io/tensorflow-udacity/assignments
+
+(Well, this is pretty annoying actually because it automatically starts a notebook
+server and makes it hard to keep track of my "books" separately.)
+
+Better even is to first build a docker container (from `~/Dropbox/Udacity/DeepLearning`):
+
+    cd tensorflow/tensorflow/examples/udacity
+    docker build -t perdue/assignments .
+
+Then, (again, from `~/Dropbox/Udacity/DeepLearning`):
+
+    docker run -p 5000:8888 -v $PWD/tensorflow/tensorflow/examples/udacity:/notebooks -it --rm perdue/assignments
+
+Note, we need the `$PWD` or we get an error like:
+
+    Error response from daemon: tensorflow/tensorflow/examples/udacity includes invalid characters for a local volume name, only [a-zA-Z0-9][a-zA-Z0-9_.-] are allowed
+
+
 ### TensorBoard
 
     tensorboard --logdir=. --port=8888  # use the port we set to face outwards
