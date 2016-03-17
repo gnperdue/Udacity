@@ -1,2 +1,3 @@
 # ignore the copy of the code we're keeping locally
 tensorflow
+.ropeproject
