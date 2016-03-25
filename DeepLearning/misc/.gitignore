@@ -3,6 +3,7 @@ labeledTrainData.*
 testData.tsv
 bag_of_words*
 loremipsum.txt
+*.csv
 
 # word2vec models
 300features_40minwords_10context
