@@ -1,3 +1,6 @@
 # ignore the copy of the code we're keeping locally
 tensorflow
 .ropeproject
+
+# ignore n. buduma's book repo
+Fundamentals-of-Deep-Learning-Book
